@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('./app_server/models/db');
 
+
+//console.log(process.env.NODE_ENV);
 var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
 
