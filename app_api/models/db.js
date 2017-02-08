@@ -2,15 +2,16 @@ var mongoose = require( 'mongoose' );
 var gracefulShutdown;
 var readLine = require ("readline");
 
+mongoose.Promise = require('bluebird');
 
-var dbURI = 'mongodb://localhost/Locator';
+var dbURI = 'mongodb://localhost/locator';
 if (process.env.NODE_ENV === 'production') {
 	
 	//dbURI = process.env.MONGOLAB_URI;
 	dbURI='mongodb://saqlain:12345@ds049631.mlab.com:49631/getting-mean';
 } 
 
-
+//mongoose.Promise = require('bluebird');
 mongoose.connect(dbURI);
 mongoose.connection.on('connected', function () {
 	console.log('Mongoose connected to ' + dbURI);
