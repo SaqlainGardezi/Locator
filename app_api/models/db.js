@@ -5,6 +5,8 @@ var readLine = require ("readline");
 mongoose.Promise = require('bluebird');
 
 var dbURI = 'mongodb://localhost/locator';
+
+
 if (process.env.NODE_ENV === 'production') {
 	
 	//dbURI = process.env.MONGOLAB_URI;
