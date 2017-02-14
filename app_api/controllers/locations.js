@@ -24,6 +24,8 @@ var sendJsonResponse=function(res,status,content){
 	res.json(content);
 };
 
+
+//		Search a location based on longitude and latitude
 module.exports.locationsListByDistance=function(req,res){
 	
 	var lng=parseFloat(req.query.lng);
@@ -41,7 +43,7 @@ module.exports.locationsListByDistance=function(req,res){
 		num: 20
 	};
 
-	if(!lat || !lng){
+	if((!lng && lng!==0) || (!lat && lat!==0)){
 		sendJsonResponse(res, 404, {
 			"message": "lng and lat query parameters are required"
 		});
@@ -68,6 +70,8 @@ module.exports.locationsListByDistance=function(req,res){
 	});
 };
 
+
+//		Create a new location
 module.exports.locationsCreate=function(req,res){
 	Loc.create({
 		name:req.body.name,
@@ -97,6 +101,8 @@ module.exports.locationsCreate=function(req,res){
 	);
 };
 
+
+//		Read a location based on id
 module.exports.locationsReadOne = function(req, res) {
 	if (req.params && req.params.locationid) {
 		Loc.findById(req.params.locationid).exec(function(err, location){
@@ -120,6 +126,8 @@ module.exports.locationsReadOne = function(req, res) {
 	}
 };
 
+
+//		Update a location based on id
 module.exports.locationsUpdateOne=function(req,res){
 	if(!req.params.locationid){
 		sendJsonResponse(res, 404, {
@@ -168,6 +176,7 @@ module.exports.locationsUpdateOne=function(req,res){
 			});
 };
 
+//		Delete a location based on id
 module.exports.locationsDeleteOne=function(req,res){
 	var locationid=req.params.locationid;
 	console.log(locationid + " is going to be deleted");

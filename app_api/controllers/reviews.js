@@ -6,7 +6,7 @@ var sendJsonResponse=function(res,status,content){
 	res.json(content);
 };
 
-//		setAverageRating
+//		function setAverageRating
 var doSetAverageRating=function(location){
 	var i, reviewCount, ratingAverage, ratingTotal;
 	if(location.reviews && location.reviews.length>0){
@@ -28,7 +28,7 @@ var doSetAverageRating=function(location){
 	}
 };
 
-//		updateAverageRating
+//		function updateAverageRating
 var updateAverageRating=function(locationid){
 	Loc
 		.findById(locationid)
@@ -40,7 +40,7 @@ var updateAverageRating=function(locationid){
 		});
 };
 
-//		doAddReview 
+//		function doAddReview 
 var doAddReview=function(req, res, location){
 	if (!location) {
 		sendJsonResponse(res, 404, {
@@ -67,6 +67,7 @@ var doAddReview=function(req, res, location){
 };
 
 
+//	 Create a new review
 module.exports.reviewsCreate=function(req,res){
 	var locationid=req.params.locationid;
 	if (locationid) {
@@ -90,6 +91,8 @@ module.exports.reviewsCreate=function(req,res){
 	}
 };
 
+
+//		Read a review
 module.exports.reviewsReadOne=function(req,res){
 	if (req.params && req.params.locationid && req.params.reviewid) {
 		Loc
@@ -140,6 +143,9 @@ module.exports.reviewsReadOne=function(req,res){
 		});
 	}
 };
+
+
+//		Update a review
 module.exports.reviewsUpdateOne=function(req,res){
 	if(!req.params.locationid || !req.params.reviewid){
 		sendJsonResponse(res, 404, {
@@ -189,6 +195,9 @@ module.exports.reviewsUpdateOne=function(req,res){
 				}
 			});
 };
+
+
+//		Delete a review based on location and review id
 module.exports.reviewsDeleteOne=function(req,res){
 	if(!req.params.locationid || !req.params.reviewid){
 		sendJsonResponse(res, 404, {
