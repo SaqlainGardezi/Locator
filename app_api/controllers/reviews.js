@@ -42,6 +42,8 @@ var updateAverageRating=function(locationid){
 
 //		function doAddReview 
 var doAddReview=function(req, res, location){
+	
+    console.log("author missing here at app server");
 	if (!location) {
 		sendJsonResponse(res, 404, {
 			"message":"locationid not found"
@@ -55,6 +57,7 @@ var doAddReview=function(req, res, location){
 		location.save(function(err, location){
 			var thisReview;
 			if(err){
+				console.log(err);
 				sendJsonResponse(res,400, err);
 			}
 			else{
