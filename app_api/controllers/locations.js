@@ -65,6 +65,7 @@ module.exports.locationsListByDistance=function(req,res){
 			 			_id: doc.obj._id
 			 	});
 			 });
+			 console.log("locations here are ::::: " + locations);
 			sendJsonResponse(res, 200, locations);
 		}	
 	});
