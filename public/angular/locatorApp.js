@@ -1,16 +1,18 @@
 // Service
 var locatorData=function($http){
-	return $http.get('/api/locations?lng=-0.9690884&lat=51.455041&maxDistance=20000');
+	return $http.get('/api/locations?lng=-0.9630884&lat=51.451041&maxDistance=99999999999999999999999');
 };
 
 // controller
 var locationListCtrl=function($scope, locatorData){
+	$scope.message="Searching for nearby places";
 	locatorData
 			.then(function(data) {
+			$scope.message=data.length>0 ? "" : "No locations found"; 
 			$scope.data={locations: data};
-			console.log($scope.data.name);
+			console.log("data contains " + $scope.data);
 		  }, function(e) {
-		  	console.log("Error is " + e);
+		  	$scope.message="Sorry something went wrong";
 		  });
 };
 
