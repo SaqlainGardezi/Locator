@@ -35,15 +35,12 @@ var locationListCtrl=function($scope, locatorData, geolocation){
 		locatorData.locationByCoords(lat,lng)
 			.then(function(data) {
 
-				
-				arr = $.map(data, function(value,index) { return value; });
-
-
-				 console.log("Is it array???   " + Array.isArray(arr) );
-				 $scope.message=arr.length > 0 ? " locations found" : "No locations found"; 
-				 $scope.data=arr;
-				 console.log("data is here : " + arr);
-				 $scope.message="";
+				var arr = $.map(data, function(value) { return value; });
+				console.log("Is it array???   " + Array.isArray(arr) );
+				$scope.message=arr.length > 0 ? " locations found" : "No locations found"; 
+				$scope.data=arr;
+				console.log("data is here : " + arr);
+				$scope.message="";
 		  }, function(e) {
 		  		$scope.message="Sorry something went wrong";
 		  	});
@@ -87,8 +84,6 @@ var formatDistance=function(){
 				numDistance=parseFloat(distance).toFixed(1);
 				unit="  km";
 			}
-			
-
 			else{
 				numDistance=parseInt(distance *1000, 10);
 				unit="  m";
@@ -105,8 +100,6 @@ var formatDistance=function(){
 		}
 	};
 };
-
-
 angular.module('locatorApp', []);	// setter for module
 
 angular
