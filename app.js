@@ -37,10 +37,10 @@ var uglified=uglifyJs.minify(appClientFiles,{compress:false});
 
 // 3 Save the uglified code into the public folder.
 fs.writeFile('public/angular/locator.min.js', uglified.code, function (err){
-if(err) {
-console.log(err);
-} else {
-console.log('Script generated and saved: locator.min.js');
+	if(err) {
+		console.log(err);
+	} else {
+		console.log('Script generated and saved: locator.min.js');
 }
 });
 
