@@ -23,28 +23,6 @@ app.set('view engine', 'jade');
 			/* Uglify and Minify */
 
 // 1 List all of the files we want to combine in an array
-var appClientFiles=[
-	'app_client/app.js',
-	'app_client/home/home.controller.js',
-	'app_client/common/services/geolocation.service.js',
-	'app_client/common/services/locatorData.service.js',
-	'app_client/common/filters/formatDistance.filter.js',
-	'app_client/common/directives/ratingStars/ratingStars.directive.js'
-];
-
-// 2 Call UglifyJS to combine and minify the file in memory.
-var uglified=uglifyJs.minify(appClientFiles,{compress:false});
-
-// 3 Save the uglified code into the public folder.
-fs.writeFile('public/angular/locator.min.js', uglified.code, function (err){
-	if(err) {
-		console.log(err);
-	} else {
-		console.log('Script generated and saved: locator.min.js');
-}
-});
-
-
 
 
 // uncomment after placing your favicon in /public
