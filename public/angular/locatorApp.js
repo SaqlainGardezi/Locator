@@ -9,7 +9,7 @@ var locatorData=function($http){
 	
 };
 
-//service got geolocation
+//service for geolocation
 var geolocation=function(){
 	var getPosition=function(cbSuccess,cbError,cbNoGeo){
 		if (navigator.geolocation) {
