@@ -35,9 +35,6 @@ function homeCtrl($scope, locatorData, geolocation){
 		  		vm.message="Sorry something went wrong";
 		  	});
 
-
-
-
 	};
 
 	vm.showError = function (error) {
@@ -45,16 +42,16 @@ function homeCtrl($scope, locatorData, geolocation){
 			vm.message = error.message;
 			switch(error.code) {
 			        case error.PERMISSION_DENIED:
-			            vm.message = "User denied the request for Geolocation."
+			            vm.message = "User denied the request for Geolocation.";
 			            break;
 			        case error.POSITION_UNAVAILABLE:
-			            vm.message = "Location information is unavailable."
+			            vm.message = "Location information is unavailable.";
 			            break;
 			        case error.TIMEOUT:
-			            vm.message = "The request to get user location timed out."
+			            vm.message = "The request to get user location timed out.";
 			            break;
 			        case error.UNKNOWN_ERROR:
-			            vm.message = "An unknown error occurred."
+			            vm.message = "An unknown error occurred.";
 			            break;
    			 }
 

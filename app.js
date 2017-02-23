@@ -30,7 +30,9 @@ app.set('view engine', 'jade');
 // 	'app_client/home/home.controller.js',
 // 	'app_client/common/services/geolocation.service.js',
 // 	'app_client/common/services/locatorData.service.js',
-// 	'app_client/common/filters/formatDistance.filter.js',
+// 	'app_client/common/filters/formatDistance.filter.js',,
+// ''app_client//common/directives/navigation/navigation.template.html
+//  'app_client/common/directives/footerGeneric/footerGeneric.directive.js'
 // 	'app_client/common/directives/ratingStars/ratingStars.directive.js'
 // ];
 

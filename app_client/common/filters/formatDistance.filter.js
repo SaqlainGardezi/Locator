@@ -23,9 +23,6 @@ var formatDistance=function(){
 			}
 			return numDistance + unit;
 		} 
-		if (distance==0) {
-			return distance + "  Km";
-		}
 		
 		else{
 			
