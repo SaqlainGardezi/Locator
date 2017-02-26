@@ -1,9 +1,14 @@
 (function(){
 
-angular.module('locatorApp', ['ngRoute']);
+angular.module('locatorApp', ['ngRoute', 'ngSanitize']);
 
 function config($routeProvider, $locationProvider){
 	$routeProvider
+		.when('/location/:locationid', {
+      		templateUrl:'/locationDetail/locationDetail.view.html',
+      		controller:'locationDetailCtrl',
+      		controllerAs: 'vm'
+      	})
 		.when('/', {
 			templateUrl:'home/home.view.html',
 			controller: 'homeCtrl',
@@ -14,6 +19,7 @@ function config($routeProvider, $locationProvider){
 	        controller: 'aboutCtrl',
 	        controllerAs: 'vm'
       	})
+      	
 		.otherwise({
 			redirectTo: '/'
 		});
