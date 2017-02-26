@@ -10,7 +10,14 @@
 		vm.locationid=$routeParams.locationid;
 		locatorData.locationById(vm.locationid)
 			.then(function(data){
-				vm.data={location:data};
+
+				var arr = $.map(data, function(value) { return value; });
+				console.log("Is it array???   " + Array.isArray(arr) );
+				vm.message=arr.length > 0 ? " locations found" : "No locations found"; 
+				vm.data={locations:arr};
+
+
+				
 				vm.pageHeader={
 					title: vm.data.location.name
 				};
