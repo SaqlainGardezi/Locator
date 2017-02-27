@@ -8,6 +8,8 @@ var vm = this;
 vm.modal = {
 	close : function (result) {
 $uibModalInstance.close(result);
+
+
 },
 cancel : function () {
 $uibModalInstance.dismiss('cancel');
@@ -35,7 +37,7 @@ if(!vm.formData.name || !vm.formData.rating || !vm.formData.reviewText) {
 vm.formError = "All fields required, please try again";
 return false;
 } else {
-	console.log(vm.locationData);
+
 vm.doAddReview(locationData.locationid, vm.formData);
 }
 };

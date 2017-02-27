@@ -39,11 +39,11 @@
 					}
 
 					});
-					
+
 					//console.log("location data has name ::" + );
 					modalInstance.result.then(function (data) {
-vm.data.location.data.reviews.push(data);
-});
+						vm.data.location.data.reviews.push(data);
+					});
 
 			};
 
