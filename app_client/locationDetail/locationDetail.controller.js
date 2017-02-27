@@ -8,25 +8,17 @@
 	function locationDetailCtrl($routeParams, locatorData){
 		var vm=this;
 		vm.locationid=$routeParams.locationid;
-		locatorData.locationById(vm.locationid)
-			.then(function(data){
+	locatorData.locationById(vm.locationid)
+			.then(function(data) {
 
-				var arr = $.map(data, function(value) { return value; });
-				console.log("Is it array???   " + Array.isArray(arr) );
-				vm.message=arr.length > 0 ? " locations found" : "No locations found"; 
-				vm.data={locations:arr};
-
-
-				
-				vm.pageHeader={
-					title: vm.data.location.name
-				};
-			},
-			function(e){
-				console.log(e);
+			vm.data = { location: data };
+			console.log("data is::: " +vm.data.location.name );
+			vm.pageHeader = {
+			title: vm.data.location.data.name
+			};
+			console.log(vm.data.location.data);
+			},function (e) {
+			console.log(e);
 			});
-		vm.pageHeader={
-			title: vm.locationid
-		};
 	}
 })();
