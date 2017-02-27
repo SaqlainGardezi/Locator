@@ -23,7 +23,7 @@
 				vm.popupReviewForm=function(){
 
 				
-					var modalInstance = $uibModal.open({
+					var uibModalInstance = $uibModal.open({
 						templateUrl: '/reviewModal/reviewModal.view.html',
 						controller: 'reviewModalCtrl as vm',
 						resolve : {
@@ -33,7 +33,7 @@
 									locationid : vm.locationid,
 									locationName : vm.data.location.data.name
 								};
-								console.log("location name is "+locationName);
+								console.log("location name is " +locationName);
 					}
 
 					}
@@ -41,8 +41,9 @@
 					});
 
 					//console.log("location data has name ::" + );
-					modalInstance.result.then(function (data) {
-						vm.data.location.data.reviews.push(data);
+					uibModalInstance.result.then(function (data) {
+						vm.data.location.data.reviews.push(data.data);
+
 					});
 
 			};
