@@ -1,6 +1,6 @@
 (function(){
 
-angular.module('locatorApp', ['ngRoute', 'ngSanitize']);
+angular.module('locatorApp', ['ngRoute', 'ngSanitize', 'ui.bootstrap']);
 
 function config($routeProvider, $locationProvider){
 	$routeProvider
