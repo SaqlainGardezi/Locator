@@ -33,7 +33,7 @@
 									locationid : vm.locationid,
 									locationName : vm.data.location.data.name
 								};
-								console.log("location name is " +locationName);
+								console.log("location name is " + locationName);
 					}
 
 					}
