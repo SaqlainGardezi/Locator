@@ -34,7 +34,6 @@ rl.on ("SIGINT", function (){
 	//console.log("signint emitted");
 	process.emit ("SIGINT");
 });
-
 rl.on ("SIGUSR2", function (){
 	//console.log("signusr2 emitted");
 	process.emit ("SIGUSR2");
@@ -73,3 +72,4 @@ process.on('SIGTERM', function() {
 });
 
 require('./locations');
+require('./users');

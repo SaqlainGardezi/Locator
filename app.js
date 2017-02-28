@@ -1,10 +1,14 @@
+require('dotenv').load();
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport=require('passport');       // Require passport before model definition
+
 require('./app_api/models/db');
+require('./app_api/config/passport');   //  Require strategy after model definition
 // var uglifyJs=require('uglify-js');
 // var fs= require('fs');
 
@@ -61,6 +65,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname,   'public')));
 app.use(express.static(path.join(__dirname, 'app_client')));
 
+app.use(passport.initialize());
 //app.use('/', routes);
 app.use('/api', routesApi);
 app.use(function(req, res) {
