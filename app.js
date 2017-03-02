@@ -74,6 +74,8 @@ app.use(function(req, res) {
 
 //app.use('/users', users);
 
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -82,6 +84,14 @@ app.use(function(req, res, next) {
 });
 
 // error handler
+// catch unauthorised errors
+app.use(function(err, req, res, next){
+  if (err.name==='UnauthorizedError') {
+    res.status(401);
+    res.json({"message": err.name + " : " + err.message});
+  }
+});
+
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

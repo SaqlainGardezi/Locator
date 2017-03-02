@@ -4,6 +4,16 @@ angular.module('locatorApp', ['ngRoute', 'ngSanitize', 'ui.bootstrap']);
 
 function config($routeProvider, $locationProvider){
 	$routeProvider
+		.when('/login', {
+			templateUrl:'/auth/login/login.view.html',
+			controller: 'loginCtrl',
+			controllerAs: 'vm'
+		})
+		.when('/register', {
+			templateUrl: '/auth/register/register.view.html',
+			controller: 'registerCtrl',
+			controllerAs: 'vm'
+		})
 		.when('/location/:locationid', {
       		templateUrl:'/locationDetail/locationDetail.view.html',
       		controller:'locationDetailCtrl',
